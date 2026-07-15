@@ -32,8 +32,8 @@ export function SiteFooter() {
           </p>
 
           {/* Wax seal */}
-          <span className="absolute -right-6 -top-6 block h-16 w-16 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 md:h-20 md:w-20">
-            <Image src="/images/wax-seal.png" alt="" fill className="object-contain drop-shadow-md" sizes="80px" />
+          <span className="absolute -right-6 -top-6 block h-16 w-16 overflow-hidden rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 md:h-20 md:w-20">
+            <Image src="/images/wax-seal.png" alt="" fill className="scale-125 object-cover" sizes="80px" />
           </span>
 
           <span className="sr-only">Открыть сайт Влада Коркишко в новой вкладке</span>
