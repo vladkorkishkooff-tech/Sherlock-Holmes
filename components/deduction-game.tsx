@@ -4,6 +4,7 @@ import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
+import { CollageTitle, Ephemera } from '@/components/collage'
 
 type ClueId = 'window' | 'glass' | 'watch' | 'boot' | 'letter'
 
@@ -53,10 +54,11 @@ export function DeductionGame() {
 
   return (
     <section id="game" className="gaslight relative overflow-hidden py-20 md:py-28">
+      <Ephemera variant="left" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-brass">{t.game.kicker}</p>
-        <h2 className="mt-3 font-serif text-4xl font-black uppercase tracking-tight text-foreground md:text-6xl">
-          {t.game.title}
+        <h2 className="mt-4 text-[clamp(1.4rem,5.5vw,2rem)] md:text-[clamp(1.75rem,3vw,2.75rem)]">
+          <CollageTitle text={t.game.title} className="justify-start" />
         </h2>
         <p className="mt-3 max-w-xl text-pretty font-sans text-lg italic text-charcoal">{t.game.subtitle}</p>
         <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-charcoal/80 md:text-[11px]">

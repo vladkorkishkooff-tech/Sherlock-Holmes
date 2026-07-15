@@ -4,6 +4,7 @@ import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
+import { CollageTitle } from '@/components/collage'
 
 // Board virtual coordinate space — cards live on a fixed-size canvas that
 // scrolls horizontally on small screens so dragging keeps working everywhere.
@@ -84,8 +85,8 @@ export function EvidenceBoard() {
     <section id="board" className="gaslight relative overflow-hidden py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-brass">{t.board.kicker}</p>
-        <h2 className="mt-3 font-serif text-4xl font-black uppercase tracking-tight text-foreground md:text-6xl">
-          {t.board.title}
+        <h2 className="mt-4 text-[clamp(1.4rem,5.5vw,2rem)] md:text-[clamp(1.75rem,3vw,2.75rem)]">
+          <CollageTitle text={t.board.title} className="justify-start" />
         </h2>
         <p className="mt-3 max-w-xl text-pretty font-sans text-lg italic text-charcoal">{t.board.subtitle}</p>
         <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-charcoal/80 md:text-[11px]">

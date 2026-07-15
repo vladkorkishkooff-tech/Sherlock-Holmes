@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
+import { Ephemera, Tape } from '@/components/collage'
 
 // Deterministic per-index letter chip styles — ransom-note collage effect
 const chipVariants = [
@@ -42,6 +43,7 @@ export function Hero() {
 
   return (
     <section className="paper-grain gaslight relative flex min-h-screen flex-col overflow-hidden pt-12">
+      <Ephemera variant="left" />
       {/* Newspaper masthead */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -66,6 +68,8 @@ export function Hero() {
         className="pointer-events-none absolute right-[7%] top-1/2 z-0 hidden -translate-y-1/2 md:block"
       >
         <div className="pin paper-shadow relative border-[10px] border-paper bg-paper">
+          <Tape className="-left-7 top-8 rotate-[-42deg]" />
+          <Tape className="-right-7 bottom-10 rotate-[40deg]" />
           <div className="relative h-[58vh] w-[38vw] max-w-md">
             <Image
               src="/images/holmes-silhouette.png"
@@ -102,7 +106,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.8, duration: 0.5 }}
-          className="paper-shadow rotate-[-1deg] bg-paper px-4 py-2 text-center font-mono text-xs uppercase tracking-[0.2em] text-ink md:text-sm"
+          className="torn-edge paper-shadow rotate-[-1deg] bg-paper px-5 py-2.5 text-center font-mono text-xs uppercase tracking-[0.2em] text-ink md:text-sm"
         >
           {t.hero.subtitle}
         </motion.p>
@@ -121,7 +125,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 4.3, duration: 0.5 }}
           href="#board"
-          className="paper-shadow group mt-2 inline-flex rotate-[-1.5deg] items-center gap-3 bg-crimson px-6 py-3 font-mono text-sm uppercase tracking-[0.2em] text-paper transition-transform hover:rotate-0 hover:scale-[1.03]"
+          className="torn-edge paper-shadow group mt-2 inline-flex rotate-[-1.5deg] items-center gap-3 bg-crimson px-7 py-3.5 font-mono text-sm uppercase tracking-[0.2em] text-paper transition-transform hover:rotate-0 hover:scale-[1.03]"
         >
           {t.hero.cta}
           <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">

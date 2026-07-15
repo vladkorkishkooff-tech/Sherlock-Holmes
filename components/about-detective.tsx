@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/lib/i18n'
+import { CollageTitle, Ephemera, Tape } from '@/components/collage'
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -16,6 +17,7 @@ export function AboutDetective() {
 
   return (
     <section id="detective" className="paper-grain gaslight relative overflow-hidden py-24 md:py-32">
+      <Ephemera variant="left" />
       <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-16 md:px-8">
         {/* Pinned engraving */}
         <motion.figure
@@ -23,6 +25,8 @@ export function AboutDetective() {
           transition={{ duration: 0.7 }}
           className="pin paper-shadow relative mx-auto w-full max-w-sm rotate-[-2deg] border-8 border-paper bg-paper md:mx-0"
         >
+          <Tape className="-left-6 -top-3 rotate-[-38deg]" />
+          <Tape className="-right-6 bottom-6 rotate-[42deg]" />
           <div className="relative aspect-[4/5] w-full">
             <Image
               src="/images/holmes-watson-engraving.png"
@@ -45,9 +49,9 @@ export function AboutDetective() {
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-serif text-[clamp(1.5rem,6.5vw,2.25rem)] font-black uppercase leading-[0.95] tracking-tight text-foreground text-balance md:text-[clamp(1.5rem,3.4vw,3.25rem)]"
+            className="text-[clamp(1.15rem,4.5vw,1.75rem)] md:text-[clamp(1.25rem,2.4vw,2.25rem)]"
           >
-            {t.detective.title}
+            <CollageTitle text={t.detective.title} className="justify-start" />
           </motion.h2>
           <motion.p
             {...fadeUp}
@@ -69,7 +73,7 @@ export function AboutDetective() {
             {facts.map((f, i) => (
               <div
                 key={f.label}
-                className={`paper-shadow border border-ink/15 bg-paper px-4 py-3 ${i % 2 === 0 ? 'rotate-[-1deg]' : 'rotate-[1deg]'}`}
+                className={`torn-edge paper-shadow bg-paper px-4 py-3 ${i % 2 === 0 ? 'rotate-[-1.5deg]' : 'rotate-[1.5deg]'}`}
               >
                 <dt className="font-mono text-[10px] uppercase leading-snug tracking-[0.15em] text-ink/60">{f.label}</dt>
                 <dd className="mt-1 font-serif text-3xl font-black text-crimson md:text-4xl">{f.value}</dd>

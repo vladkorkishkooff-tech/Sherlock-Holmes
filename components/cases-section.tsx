@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/lib/i18n'
 import { cases } from '@/lib/cases'
+import { CollageTitle, Ephemera, Tape } from '@/components/collage'
 
 const tilts = ['rotate-[-1.5deg]', 'rotate-[1deg]', 'rotate-[-0.5deg]']
 
@@ -13,11 +14,12 @@ export function CasesSection() {
 
   return (
     <section id="cases" className="paper-grain gaslight relative overflow-hidden py-24 md:py-32">
+      <Ephemera variant="right" />
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-8">
         <div className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">
           <p className="kicker">{t.cases.kicker}</p>
-          <h2 className="font-serif text-4xl font-black uppercase leading-[0.95] tracking-tight text-foreground text-balance md:text-6xl">
-            {t.cases.title}
+          <h2 className="text-[clamp(1.4rem,5.5vw,2rem)] md:text-[clamp(1.75rem,3vw,2.75rem)]">
+            <CollageTitle text={t.cases.title} />
           </h2>
           <p className="max-w-md font-mono text-sm leading-relaxed text-charcoal">{t.cases.subtitle}</p>
         </div>
@@ -32,6 +34,7 @@ export function CasesSection() {
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className={`group relative ${tilts[i]}`}
             >
+              <Tape className={i % 2 === 0 ? '-top-3 left-1/2 -translate-x-1/2 rotate-[-4deg]' : '-top-3 right-6 rotate-[8deg]'} />
               <Link
                 href={`/case/${c.slug}`}
                 className="paper-shadow block border border-ink/15 bg-paper transition-transform duration-300 hover:rotate-0 hover:scale-[1.02]"

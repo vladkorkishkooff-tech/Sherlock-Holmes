@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/lib/i18n'
+import { CollageTitle, Ephemera } from '@/components/collage'
 
 type SpotId = 'chair' | 'desk' | 'violin' | 'wall'
 
@@ -20,11 +21,12 @@ export function Flat221B() {
 
   return (
     <section id="flat" className="paper-grain gaslight relative overflow-hidden py-24 md:py-32">
+      <Ephemera variant="right" />
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
         <div className="mb-12 flex flex-col items-center gap-4 text-center md:mb-14">
           <p className="kicker">{t.flat.kicker}</p>
-          <h2 className="font-serif text-4xl font-black uppercase leading-[0.95] tracking-tight text-foreground text-balance md:text-6xl">
-            {t.flat.title}
+          <h2 className="text-[clamp(1.4rem,5.5vw,2rem)] md:text-[clamp(1.75rem,3vw,2.75rem)]">
+            <CollageTitle text={t.flat.title} />
           </h2>
           <p className="max-w-md font-mono text-sm leading-relaxed text-charcoal">{t.flat.subtitle}</p>
         </div>

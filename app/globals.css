@@ -145,12 +145,10 @@ body {
   color: var(--paper);
 }
 
-/* Custom cursor hidden on touch */
-@media (hover: hover) and (pointer: fine) {
-  .cursor-magnifier,
-  .cursor-magnifier * {
-    cursor: none;
-  }
+/* Custom cursor — the .cursor-magnifier class is only added once a real mouse is detected */
+.cursor-magnifier,
+.cursor-magnifier * {
+  cursor: none;
 }
 
 /* Pin dot */
