@@ -5,20 +5,24 @@ import { motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
 import { Ephemera, Tape } from '@/components/collage'
 
-// Deterministic per-index letter chip styles — ransom-note collage effect
+// Ransom-note letter scraps — mixed newspaper colors, torn shapes, mismatched
+// fonts and uneven baselines, like letters cut from different magazines.
 const chipVariants = [
-  'bg-paper text-ink rotate-[-3deg]',
-  'bg-paper-dark text-ink rotate-[2deg]',
-  'bg-crimson text-paper rotate-[-1.5deg]',
-  'bg-paper text-crimson rotate-[3deg]',
-  'bg-ink text-paper rotate-[-2deg] border border-brass/40',
-  'bg-paper text-ink rotate-[1.5deg]',
-  'bg-brass text-ink rotate-[-2.5deg]',
+  'bg-paper text-ink font-serif torn-a rotate-[-4deg]',
+  'bg-[#b98a2e] text-ink font-mono torn-b rotate-[2.5deg] translate-y-[0.1em]',
+  'bg-crimson text-paper font-serif torn-c rotate-[-2deg] -translate-y-[0.08em]',
+  'bg-ink text-paper font-mono torn-a rotate-[4deg]',
+  'bg-teal text-paper font-serif torn-b rotate-[-3deg] translate-y-[0.12em]',
+  'bg-paper-dark text-crimson font-serif torn-c rotate-[3deg]',
+  'bg-ink text-brass font-mono torn-b rotate-[-5deg] -translate-y-[0.06em]',
+  'bg-paper text-ink font-serif torn-a rotate-[5deg] translate-y-[0.08em]',
 ]
+
+const chipSizes = ['text-[1em]', 'text-[1.14em]', 'text-[0.93em]', 'text-[1.07em]', 'text-[0.96em]', 'text-[1.18em]', 'text-[0.9em]']
 
 function RansomWord({ word, delayOffset }: { word: string; delayOffset: number }) {
   return (
-    <span className="flex justify-center gap-x-1 gap-y-2 md:gap-x-2">
+    <span className="flex items-center justify-center">
       {word.split('').map((letter, i) => (
         <motion.span
           key={`${letter}-${i}`}
@@ -29,7 +33,9 @@ function RansomWord({ word, delayOffset }: { word: string; delayOffset: number }
             duration: 0.45,
             ease: [0.34, 1.56, 0.64, 1],
           }}
-          className={`paper-shadow inline-block px-1.5 py-0.5 font-serif font-black uppercase leading-none md:px-3 md:py-1 ${chipVariants[i % chipVariants.length]}`}
+          className={`paper-shadow inline-flex min-w-[1.4em] items-center justify-center px-[0.24em] py-[0.14em] font-black uppercase leading-none ${
+            chipVariants[i % chipVariants.length]
+          } ${chipSizes[i % chipSizes.length]} ${i > 0 ? '-ml-[0.1em]' : ''}`}
         >
           {letter}
         </motion.span>
@@ -43,7 +49,7 @@ export function Hero() {
 
   return (
     <section className="paper-grain gaslight relative flex min-h-screen flex-col overflow-hidden pt-12">
-      <Ephemera variant="left" />
+      <Ephemera variant="left" eager />
       {/* Newspaper masthead */}
       <motion.div
         initial={{ opacity: 0 }}
