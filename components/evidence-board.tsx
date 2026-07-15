@@ -68,9 +68,14 @@ export function EvidenceBoard() {
   const [offsets, setOffsets] = useState<Offsets>(INITIAL_OFFSETS)
   const [flipped, setFlipped] = useState<ItemId | null>(null)
   const draggingRef = useRef(false)
+  // Live offsets in a ref so rapid drag deltas never get lost between renders
+  const offsetsRef = useRef<Offsets>(INITIAL_OFFSETS)
 
-  const handleDrag = useCallback((id: ItemId, x: number, y: number) => {
-    setOffsets((prev) => ({ ...prev, [id]: { x, y } }))
+  const handleDrag = useCallback((id: ItemId, dx: number, dy: number) => {
+    const cur = offsetsRef.current[id]
+    const next = { x: cur.x + dx, y: cur.y + dy }
+    offsetsRef.current = { ...offsetsRef.current, [id]: next }
+    setOffsets(offsetsRef.current)
   }, [])
 
   const itemById = Object.fromEntries(ITEMS.map((i) => [i.id, i])) as Record<ItemId, BoardItem>
@@ -138,7 +143,7 @@ export function EvidenceBoard() {
                   onDragStart={() => {
                     draggingRef.current = true
                   }}
-                  onDrag={(_, info) => handleDrag(item.id, offsets[item.id].x + info.delta.x, offsets[item.id].y + info.delta.y)}
+                  onDrag={(_, info) => handleDrag(item.id, info.delta.x, info.delta.y)}
                   onDragEnd={() => {
                     // Let the click handler know this gesture was a drag
                     setTimeout(() => {
@@ -147,6 +152,7 @@ export function EvidenceBoard() {
                   }}
                   whileDrag={{ scale: 1.06, zIndex: 40 }}
                   whileHover={{ scale: 1.03 }}
+                  data-evidence={item.id}
                   className="absolute z-20 cursor-grab active:cursor-grabbing"
                   style={{ left: item.x, top: item.y, width: item.w, rotate: item.rotate }}
                 >

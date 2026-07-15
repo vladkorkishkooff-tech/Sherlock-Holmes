@@ -67,6 +67,51 @@ export const dictionary = {
         },
       },
     },
+    game: {
+      kicker: 'Испытание',
+      title: 'Метод дедукции',
+      subtitle: 'Осмотрите кабинет. Найдите все улики. Сделайте вывод.',
+      instruction: 'Ведите лупой по сцене и нажимайте на подозрительные детали',
+      found: 'Улики',
+      cluesTitle: 'Записная книжка',
+      emptyNotebook: 'Пока пусто. Наблюдайте, Ватсон.',
+      clues: {
+        window: {
+          label: 'Открытое окно',
+          note: 'Окно распахнуто изнутри — засов не повреждён. Преступника впустили или у него был ключ.',
+        },
+        glass: {
+          label: 'Бокал вина',
+          note: 'Бокал наполовину полон, но без следов губ. Вино налили для отвода глаз.',
+        },
+        watch: {
+          label: 'Карманные часы',
+          note: 'Часы остановились в 23:47. Стекло треснуло при падении — время борьбы установлено.',
+        },
+        boot: {
+          label: 'След ботинка',
+          note: 'Грязь с набережной Темзы. Размер 10, каблук стоптан внутрь — хромота на левую ногу.',
+        },
+        letter: {
+          label: 'Письмо на столе',
+          note: 'Бумага дорогая, богемская. Чернила ещё свежие — письмо написано этим вечером.',
+        },
+      },
+      deduce: 'Сделать вывод',
+      question: 'Кто преступник?',
+      options: {
+        butler: 'Дворецкий — у него ключи от всех дверей',
+        visitor: 'Ночной гость — хромой человек с набережной, которого впустили сами',
+        stranger: 'Случайный грабитель — влез через окно',
+      },
+      correct: 'visitor',
+      successTitle: 'Элементарно!',
+      successText: 'Хозяин сам впустил гостя — хромого человека с Темзы, которого знал. Открытое окно и бокал — инсценировка ограбления. Часы зафиксировали момент борьбы: 23:47.',
+      failTitle: 'Не спешите, Ватсон',
+      failText: 'Вы смотрите, но не наблюдаете. Взгляните на улики ещё раз: окно открыто изнутри, а след ведёт не к окну, а от двери.',
+      retry: 'Попробовать снова',
+      needMore: 'Сначала найдите все улики',
+    },
   },
   en: {
     header: {
@@ -133,6 +178,51 @@ export const dictionary = {
           note: 'The study window was not locked from inside. Mud traces on the sill — size 10.',
         },
       },
+    },
+    game: {
+      kicker: 'The Trial',
+      title: 'The Art of Deduction',
+      subtitle: 'Examine the study. Find every clue. Draw your conclusion.',
+      instruction: 'Sweep the lens across the scene and click on suspicious details',
+      found: 'Clues',
+      cluesTitle: 'Notebook',
+      emptyNotebook: 'Nothing yet. Observe, Watson.',
+      clues: {
+        window: {
+          label: 'The open window',
+          note: 'Opened from the inside — the latch is intact. The intruder was let in, or had a key.',
+        },
+        glass: {
+          label: 'The wine glass',
+          note: 'Half full, yet no trace of lips. The wine was poured for show.',
+        },
+        watch: {
+          label: 'The pocket watch',
+          note: 'Stopped at 11:47 pm. The glass cracked in the fall — the moment of struggle is fixed.',
+        },
+        boot: {
+          label: 'The boot print',
+          note: 'Mud from the Thames embankment. Size 10, heel worn inward — a limp on the left leg.',
+        },
+        letter: {
+          label: 'The letter on the desk',
+          note: 'Expensive Bohemian paper. The ink is still fresh — written this very evening.',
+        },
+      },
+      deduce: 'Draw the conclusion',
+      question: 'Who is the culprit?',
+      options: {
+        butler: 'The butler — he holds keys to every door',
+        visitor: 'The night visitor — a limping man from the embankment, let in willingly',
+        stranger: 'A random burglar — climbed in through the window',
+      },
+      correct: 'visitor',
+      successTitle: 'Elementary!',
+      successText: 'The master let his visitor in himself — a limping man from the Thames he knew well. The open window and the glass are a staged burglary. The watch fixed the struggle: 11:47 pm.',
+      failTitle: 'Not so fast, Watson',
+      failText: 'You see, but you do not observe. Look again: the window was opened from inside, and the print leads from the door — not the window.',
+      retry: 'Try again',
+      needMore: 'Find all the clues first',
     },
   },
 } as const
