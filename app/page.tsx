@@ -3,6 +3,7 @@ import { MagnifierCursor } from '@/components/magnifier-cursor'
 import { SiteHeader } from '@/components/site-header'
 import { Preloader } from '@/components/preloader'
 import { Hero } from '@/components/hero'
+import { EvidenceBoard } from '@/components/evidence-board'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <EvidenceBoard />
       </main>
     </LanguageProvider>
   )

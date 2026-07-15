@@ -7,7 +7,7 @@ export function SiteHeader() {
   const { lang, t, toggleLang } = useI18n()
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/20 bg-background/90 backdrop-blur-sm">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-2.5 md:px-8">
         <p className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-charcoal sm:block">
           {t.header.location}
@@ -15,7 +15,7 @@ export function SiteHeader() {
 
         <Link
           href="/"
-          className="font-serif text-sm font-bold uppercase tracking-[0.25em] text-ink transition-colors hover:text-crimson"
+          className="font-serif text-sm font-bold uppercase tracking-[0.25em] text-foreground transition-colors hover:text-brass"
         >
           {t.header.caseNo}
         </Link>
@@ -41,7 +41,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={toggleLang}
-          className="flex items-center gap-1 border border-ink/30 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.2em] transition-colors hover:border-crimson hover:text-crimson"
+          className="flex items-center gap-1 border border-foreground/30 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.2em] transition-colors hover:border-brass hover:text-brass"
           aria-label={lang === 'ru' ? 'Switch to English' : 'Переключить на русский'}
         >
           <span className={lang === 'ru' ? 'text-crimson' : 'text-charcoal/60'}>ру</span>

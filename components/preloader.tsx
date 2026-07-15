@@ -35,7 +35,7 @@ export function Preloader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.35, duration: 0.3 }}
-            className="font-serif text-3xl font-black uppercase tracking-tight text-ink md:text-5xl"
+            className="font-serif text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl"
           >
             {t.preloader.file}
           </motion.div>

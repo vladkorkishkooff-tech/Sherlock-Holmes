@@ -25,16 +25,17 @@
 
 :root {
   --font-typewriter: var(--font-se), var(--font-ptmono);
-  --background: #e8e0d2;
-  --foreground: #1d1a16;
+  /* Night London: dark smoky background, gaslight brass, parchment only on evidence cards */
+  --background: #131009;
+  --foreground: #e2d6bc;
   --paper: #ddd2bd;
   --paper-dark: #c9baa0;
   --ink: #1d1a16;
-  --charcoal: #5f574c;
-  --crimson: #8b1e1e;
-  --brass: #8a6d3b;
-  --cork: #b08d5f;
-  --border: #a99a82;
+  --charcoal: #9c8f76;
+  --crimson: #a32424;
+  --brass: #c9a45c;
+  --cork: #4a3a28;
+  --border: #3b3325;
 }
 
 html {
@@ -62,6 +63,22 @@ body {
   }
 }
 
+/* Warm gaslight glow — radial pools of lamplight on the dark background */
+.gaslight {
+  position: relative;
+}
+.gaslight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 55% 45% at 72% 30%, rgba(201, 164, 92, 0.14), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 15% 75%, rgba(201, 164, 92, 0.07), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 110%, rgba(19, 16, 9, 0.9), transparent 100%);
+}
+
 /* Paper grain overlay used across sections */
 .paper-grain {
   position: relative;
@@ -71,7 +88,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.18;
   z-index: 1;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
