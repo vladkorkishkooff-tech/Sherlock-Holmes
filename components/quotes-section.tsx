@@ -13,7 +13,7 @@ export function QuotesSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="paper-grain gaslight relative overflow-hidden py-24 md:py-32">
+    <section id="quotes" className="paper-grain gaslight relative overflow-hidden py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
         <div className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">
           <p className="kicker">{t.quotes.kicker}</p>

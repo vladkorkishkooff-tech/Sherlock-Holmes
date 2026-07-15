@@ -38,14 +38,14 @@ export function AboutDetective() {
         </motion.figure>
 
         {/* Dossier text */}
-        <div className="flex flex-col gap-6">
+        <div className="flex min-w-0 flex-col gap-6">
           <motion.p {...fadeUp} transition={{ duration: 0.5 }} className="kicker">
             {t.detective.kicker}
           </motion.p>
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-serif text-4xl font-black uppercase leading-[0.95] tracking-tight text-foreground text-balance md:text-6xl"
+            className="font-serif text-[clamp(1.5rem,6.5vw,2.25rem)] font-black uppercase leading-[0.95] tracking-tight text-foreground text-balance md:text-[clamp(1.5rem,3.4vw,3.25rem)]"
           >
             {t.detective.title}
           </motion.h2>
