@@ -7,7 +7,7 @@ export interface CaseStep {
 
 export interface CaseFile {
   slug: CaseSlug
-  fileNo: string
+  fileNo: { ru: string; en: string }
   year: string
   image: string
   title: { ru: string; en: string }
@@ -20,7 +20,7 @@ export interface CaseFile {
 export const cases: CaseFile[] = [
   {
     slug: 'a-study-in-scarlet',
-    fileNo: 'Дело № 1881-03',
+    fileNo: { ru: 'Дело № 1881-03', en: 'Case No. 1881-03' },
     year: '1881',
     image: '/images/case-scarlet.png',
     title: { ru: 'Этюд в багровых тонах', en: 'A Study in Scarlet' },
@@ -69,7 +69,7 @@ export const cases: CaseFile[] = [
   },
   {
     slug: 'the-hound',
-    fileNo: 'Дело № 1889-10',
+    fileNo: { ru: 'Дело № 1889-10', en: 'Case No. 1889-10' },
     year: '1889',
     image: '/images/case-hound.png',
     title: { ru: 'Собака Баскервилей', en: 'The Hound of the Baskervilles' },
@@ -118,7 +118,7 @@ export const cases: CaseFile[] = [
   },
   {
     slug: 'a-scandal-in-bohemia',
-    fileNo: 'Дело № 1888-05',
+    fileNo: { ru: 'Дело № 1888-05', en: 'Case No. 1888-05' },
     year: '1888',
     image: '/images/case-bohemia.png',
     title: { ru: 'Скандал в Богемии', en: 'A Scandal in Bohemia' },

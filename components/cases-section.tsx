@@ -38,7 +38,7 @@ export function CasesSection() {
               >
                 {/* Folder tab */}
                 <div className="flex items-center justify-between border-b border-dashed border-ink/25 px-4 py-2">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">{c.fileNo}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">{c.fileNo[lang]}</span>
                   <span className="stamp px-2 py-0.5 text-[10px] font-bold text-crimson">{t.cases.status}</span>
                 </div>
 

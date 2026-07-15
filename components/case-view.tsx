@@ -45,7 +45,7 @@ function CaseContent({ caseFile }: { caseFile: CaseFile }) {
           <div className="grid items-start gap-10 md:grid-cols-[1.1fr_1fr]">
             <div className="flex min-w-0 flex-col gap-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-charcoal">
-                {caseFile.fileNo} · {caseFile.year}
+                {caseFile.fileNo[lang]} · {caseFile.year}
               </p>
               <h1 className="font-serif text-[clamp(2rem,8vw,3rem)] font-black uppercase leading-[0.95] tracking-tight text-foreground text-balance md:text-[clamp(2.5rem,4.5vw,4rem)]">
                 {caseFile.title[lang]}
@@ -75,7 +75,7 @@ function CaseContent({ caseFile }: { caseFile: CaseFile }) {
                 />
               </div>
               <p className="bg-paper pt-2 text-center font-mono text-[10px] uppercase tracking-[0.25em] text-ink/70">
-                {caseFile.fileNo}
+                {caseFile.fileNo[lang]}
               </p>
             </motion.div>
           </div>
