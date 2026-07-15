@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-paper-dark: var(--paper-dark);
+  --color-ink: var(--ink);
+  --color-charcoal: var(--charcoal);
+  --color-crimson: var(--crimson);
+  --color-brass: var(--brass);
+  --color-cork: var(--cork);
+  --color-card: var(--paper);
+  --color-card-foreground: var(--ink);
+  --color-primary: var(--crimson);
+  --color-primary-foreground: var(--paper);
+  --color-muted: var(--paper-dark);
+  --color-muted-foreground: var(--charcoal);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-body), Georgia, serif;
+  --font-serif: var(--font-display), Georgia, serif;
+  --font-mono: var(--font-typewriter), 'Courier New', monospace;
+}
+
+:root {
+  --font-typewriter: var(--font-se), var(--font-ptmono);
+  --background: #e8e0d2;
+  --foreground: #1d1a16;
+  --paper: #ddd2bd;
+  --paper-dark: #c9baa0;
+  --ink: #1d1a16;
+  --charcoal: #5f574c;
+  --crimson: #8b1e1e;
+  --brass: #8a6d3b;
+  --cork: #b08d5f;
+  --border: #a99a82;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Paper grain overlay used across sections */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* Torn paper edge */
+.torn-edge {
+  clip-path: polygon(
+    0% 2%, 3% 0%, 8% 1.5%, 14% 0.5%, 21% 2%, 28% 0.8%, 35% 1.8%, 43% 0.4%,
+    50% 1.6%, 57% 0.6%, 64% 2%, 71% 0.7%, 78% 1.9%, 85% 0.5%, 92% 1.7%, 97% 0.4%, 100% 2%,
+    100% 98%, 97% 100%, 91% 98.4%, 84% 99.6%, 77% 98.2%, 70% 99.4%, 63% 98%,
+    56% 99.5%, 49% 98.3%, 42% 99.6%, 35% 98.1%, 28% 99.4%, 21% 98.5%, 14% 99.7%, 7% 98.2%, 3% 99.5%, 0% 98%
+  );
+}
+
+/* Hard paper shadow for pinned items */
+.paper-shadow {
+  box-shadow: 2px 3px 0 rgba(29, 26, 22, 0.25), 4px 6px 14px rgba(29, 26, 22, 0.18);
+}
+
+/* Rubber stamp look */
+.stamp {
+  font-family: var(--font-typewriter), monospace;
+  border: 3px double currentColor;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.12' numOctaves='3'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+  mask-size: 200px 200px;
+}
+
+/* Typewriter selection */
+::selection {
+  background: var(--crimson);
+  color: var(--paper);
+}
+
+/* Custom cursor hidden on touch */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-magnifier,
+  .cursor-magnifier * {
+    cursor: none;
+  }
+}
+
+/* Pin dot */
+.pin::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #d9534f, var(--crimson) 60%, #4e0f0f);
+  box-shadow: 0 2px 3px rgba(29, 26, 22, 0.5);
+  z-index: 5;
+}
