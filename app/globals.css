@@ -118,6 +118,27 @@ body {
   mask-size: 200px 200px;
 }
 
+/* Section kicker — small typewriter overline */
+.kicker {
+  font-family: var(--font-typewriter), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--brass);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.kicker::before,
+.kicker::after {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--brass);
+  opacity: 0.5;
+}
+
 /* Typewriter selection */
 ::selection {
   background: var(--crimson);
