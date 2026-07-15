@@ -58,21 +58,21 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Silhouette backdrop */}
+      {/* Silhouette backdrop — desktop only, sits right of the text column */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.8, duration: 1.2 }}
-        className="pointer-events-none absolute inset-x-0 bottom-0 top-24 z-0 flex items-end justify-center md:justify-end md:pr-[6%]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-24 z-0 hidden items-end justify-end pr-[6%] md:flex"
       >
-        <div className="relative h-[62vh] w-full max-w-md md:h-[80vh] md:max-w-xl">
+        <div className="relative h-[80vh] w-full max-w-xl">
           <Image
             src="/images/holmes-silhouette.png"
             alt="Силуэт Шерлока Холмса, заполненный викторианским Лондоном"
             fill
             priority
             className="object-contain object-bottom opacity-90 mix-blend-multiply"
-            sizes="(max-width: 768px) 100vw, 40vw"
+            sizes="40vw"
           />
         </div>
       </motion.div>
@@ -83,12 +83,12 @@ export function Hero() {
           initial={{ opacity: 0, scale: 1.8, rotate: 0 }}
           animate={{ opacity: 1, scale: 1, rotate: 7 }}
           transition={{ delay: 4.1, duration: 0.2, ease: 'easeIn' }}
-          className="stamp absolute right-[6%] top-[8%] px-4 py-1.5 text-sm font-bold text-crimson md:right-[38%] md:top-[12%] md:text-lg"
+          className="stamp absolute right-[6%] top-0 px-4 py-1.5 text-sm font-bold text-crimson md:right-[38%] md:top-[12%] md:text-lg"
         >
           {t.hero.confidential}
         </motion.p>
 
-        <h1 className="flex flex-col items-center gap-3 text-[clamp(3rem,13vw,9rem)] md:items-start md:gap-4">
+        <h1 className="flex flex-col items-center gap-3 text-[clamp(2.5rem,11vw,4rem)] md:items-start md:gap-4 md:text-[clamp(3rem,6vw,5.5rem)]">
           <RansomWord word={t.hero.name} delayOffset={2.5} />
           <RansomWord word={t.hero.surname} delayOffset={3.1} />
         </h1>
@@ -123,6 +123,23 @@ export function Hero() {
             →
           </span>
         </motion.a>
+
+        {/* Silhouette in flow — mobile only, below the text so nothing overlaps */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 4.5, duration: 1 }}
+          className="paper-shadow relative mt-6 aspect-[3/4] w-full max-w-xs rotate-[-1.5deg] border-8 border-paper bg-paper md:hidden"
+        >
+          <Image
+            src="/images/holmes-silhouette.png"
+            alt="Силуэт Шерлока Холмса, заполненный викторианским Лондоном"
+            fill
+            priority
+            className="object-cover object-bottom"
+            sizes="100vw"
+          />
+        </motion.div>
       </div>
 
       {/* Scroll hint — typewriter note */}
